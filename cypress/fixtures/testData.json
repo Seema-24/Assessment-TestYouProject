@@ -1,0 +1,6 @@
+{
+  "email": "user1@test.com",
+  "password": "Test123",
+  "loginError": "Userid or Password did Not Match !!",
+  "mandatoryFieldError": "Enter Login Id ,  Enter Login Password"
+}
