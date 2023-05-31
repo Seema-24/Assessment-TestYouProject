@@ -1,0 +1,19 @@
+{
+  "name": "testyou-project",
+  "version": "1.0.0",
+  "description": "Testyou is a online system to allow free online test.",
+  "main": "index.js",
+  "scripts": {
+    "report": "npx cypress run --browser chrome --headless --spec cypress/e2e/**/* --config video=false",
+    "test:report": "npx cypress run --browser chrome --headed --spec cypress/e2e/**/* --config video=false"
+  },
+  "author": "Seema Kumari",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^12.13.0"
+  },
+  "devDependencies": {
+    "@cypress/xpath": "^2.0.3",
+    "cypress-mochawesome-reporter": "^3.5.0"
+  }
+}
