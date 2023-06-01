@@ -2,6 +2,12 @@ Pre-requisite:
 	Node.js	
 	git
 
+In order to get the code and install dependencies:
+
+    git clone https://github.com/Seema-24/Assessment-TestYouProject.git
+    cd TestYou-Project (project directory)
+    npm install
+	
 By triggering “npm install” command, it will install all dependencies from package.json in the project.
 
 Run tests:
