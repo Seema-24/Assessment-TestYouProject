@@ -3,7 +3,7 @@ import Login from "../support/Pages/Login";
 let testData;
 const login = new Login();
 
-describe('TestYou - Login Page scenerios', () => {
+describe('TestYou - Login Page scenarios', () => {
 
     before(() => {
         cy.fixture('testData').then((data) => {
@@ -15,12 +15,9 @@ describe('TestYou - Login Page scenerios', () => {
         cy.visit('/');
     });
 
-    it('TC_001: Verify TestYou Login header', () => {
+    it('TC_001: Verify the elements of the Login page', () => {
         login.verifyLoginHeader();
         login.verifyHeaderText('TestYou Login');
-    });
-
-    it('TC_002: Verify the elements of the Login page', () => {
         login.verifyLoginElements([
             'Email Address / Login Id:',
             'Password : ',
@@ -33,30 +30,38 @@ describe('TestYou - Login Page scenerios', () => {
         login.verifyLoginByGoogle();
     });
 
-    it('TC_003: Verify that user is able to login successfully with valid credentials', () => {
+    it('TC_002: Verify that user is able to login successfully with valid credentials', () => {
         login.enterEmailAdd(testData.email);
         login.enterPassword(testData.password);
         login.clickCheckbox();
         login.clickLoginBtn();
     });
 
-    it('TC_004: Verify that user is not able to login with incorrect credentials', () => {
-        login.enterEmailAdd(testData.email);
+    it('TC_003: Verify that user is not able to login with incorrect credentials', () => {
+        login.enterEmailAdd(testData.invalidEmail);
         login.enterPassword(testData.password);
         login.clickCheckbox();
         login.clickLoginBtn();
         login.verifyErrorMsg(testData.loginError);
     });
 
-    it('TC_005: Verify mandatory field error message should displayed when user click on Login button with empty credentials', () => {
+    it('TC_004: Verify validation messages with empty Email address and Password', () => {
         login.clickLoginBtn();
         login.mandatoryFieldError(testData.mandatoryFieldError);
     });
 
-    it('TC_006: Verify that user can click on Forgot password link and it redirected to forgot password page', () => {
+    it('TC_005: Verify the functionality of Forget password link', () => {
         login.clickOnForgotPasswordLink();
         login.verifyRedirectedUrl('ForgetPassword');
     });
+
+    it('TC_006: Verify user is able to Forgot your password', () => {
+        login.clickOnForgotPasswordLink();
+        login.enterForgotPassEmail(testData.email);
+        login.clickSubmitBtn();
+        cy.wait(1000);
+        login.forgotPasswordErrorMsg(testData.forgotPasswordError);
+    }); 
 
     it('TC_007: Verify that user can click on Signup for TestYou link and it redirected to Signup page', () => {
         login.clickOnSignUpLink();

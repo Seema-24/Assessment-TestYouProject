@@ -1,6 +1,8 @@
 {
-  "email": "user1@test.com",
-  "password": "Test123",
+  "email": "Seema@test.com",
+  "password": "Test123@",
+  "invalidEmail": "userTest@",
   "loginError": "Userid or Password did Not Match !!",
-  "mandatoryFieldError": "Enter Login Id ,  Enter Login Password"
+  "mandatoryFieldError": "Enter Login Id ,  Enter Login Password",
+  "forgotPasswordError": "Incorrect Email-ID / LoginId OR Your Account Not Activated Please do activate your account !"
 }

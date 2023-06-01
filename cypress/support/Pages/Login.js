@@ -6,6 +6,8 @@ const facebookLink =   '.facebook_login_btn';
 const googleLink = '[src*="sign-in-with-google"]';
 const inputTextbox = (field) => `.login_box.clearfix [id*='Container_${field}']`;
 const error = '.lblboxerror';
+const submitBtn = '[name*="btnChangePassword"]';
+const forgotPwdError = '[id*="Container_lblOutput"]';
 
 export default class Login {
 
@@ -75,6 +77,17 @@ export default class Login {
         cy.url().should('eq', `https://www.testyou.in/${page}.aspx`);
     }
 
+    enterForgotPassEmail(email) {
+        cy.get(inputTextbox('txtEmailId')).type(email);
+    }
+
+    clickSubmitBtn() {
+        cy.get(submitBtn).click();
+    }
+
+    forgotPasswordErrorMsg(text) {
+        cy.get(forgotPwdError).should('contain.text', text);
+    }
 
 
 }

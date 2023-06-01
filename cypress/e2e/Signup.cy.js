@@ -2,7 +2,7 @@ import Signup from "../support/Pages/Signup";
 
 const sign = new Signup();
 
-describe('TestYou - Signup Page scenerios', () => {
+describe('TestYou - Signup Page scenarios', () => {
     beforeEach(() => {
         cy.visit(Cypress.env('signupUrl'));
     });
@@ -17,7 +17,7 @@ describe('TestYou - Signup Page scenerios', () => {
        sign.verifyCreateAccountBtn();
     });
      
-    it('TC_009: Verify that user can click on Terms of Service link then it redirected to Terms and condition page', () => {
+    it('TC_009: Verify that user can click on Terms of Service link', () => {
         sign.clickTermsOfService();
         sign.verifyRedirectedUrl('TermsAndCondition');
     });
