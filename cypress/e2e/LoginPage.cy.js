@@ -1,4 +1,3 @@
-import { beforeEach } from "mocha";
 import Login from "../support/Pages/Login";
 
 let testData;
