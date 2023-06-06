@@ -24,3 +24,15 @@ spec file in headless mode and generate the html report.
 
 	npm run report 
 
+
+Observation : 
+	This application is for online Test and developed in PHP.
+	Application is not stable.
+
+	There are two user role based on - Examiner & student.
+	Examiner can create test with variety of questions and publish that with embed link and social networking sites.
+	Students can attempt test and gain certificates.
+	Payment integration is there to if someone wants to conduct a private test.
+	Group can also be created and used to circulate the test
+
+
