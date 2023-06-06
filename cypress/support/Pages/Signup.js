@@ -1,13 +1,13 @@
-const textbox = (field) => `input[id*="txt${field}"]`;
+const textbox = (field) => `input[id*="txt${field}"]`;  // ${} dynamic element inspect for most same field, resuablility perform 
 const btn = '[id*="btnRegistration"]';
 const termsCondn = '.common_label [href="TermsAndCondition.aspx"]';
 const captcha = '[id*="Captcha_RTS"]';
 const captchImg = 'img[id*="Captcha_IMG"]';
 
-export default class Signup {
+export default class Signup {        //export class Signup page to other file 
 
     verifyNameField() {
-        cy.get(textbox('Fname')).should('be.visible');
+        cy.get(textbox('Fname')).should('be.visible');  //should assertion use
     }
 
     verifyEmailField() {
@@ -41,6 +41,9 @@ export default class Signup {
 
     verifyRedirectedUrl(page) {
         cy.url().should('eq', `https://www.testyou.in/${page}.aspx`);
+        /** cy.url() is built-in command
+         *  here ${} dollar with curly used for take exact argument, easy to understand and use rather than append with plus sign 
+         */
     }
 
     clickToChangeCaptcha() {
@@ -48,14 +51,14 @@ export default class Signup {
     }
 
     clickAndVerifyCaptchImageChanges() {
-        cy.get(captchImg).then((pic) => {
-            const firstCaptcha = pic.attr('src');
-            this.clickToChangeCaptcha();
+        cy.get(captchImg).then((pic) => {          // call back function use with pic variable which use inside the block
+            const firstCaptcha = pic.attr('src');  //it will take src attribute value from html page 
+            this.clickToChangeCaptcha();           // this keyword use for current class function, function use above
             
             cy.wait(2000);
             cy.get(captchImg).then((secPic) => {
                 const secondCaptcha = secPic.attr('src');
-                expect(firstCaptcha).to.not.equal(secondCaptcha);
+                expect(firstCaptcha).to.not.equal(secondCaptcha);  //verify expected and actual value not equal
             })
         });
     }
